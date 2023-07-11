@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.20)
+project(Requesting)
+set(CMAKE_CXX_STANDARD 23)
+set(PROJECT_SOURCES main.cpp client.h client.cpp)
+find_package(Boost COMPONENTS system thread REQUIRED)
+add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
+target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIR})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${Boost_LIBRARY} ws2_32)
